@@ -1,5 +1,6 @@
 package hr.tvz.natjecanje.karmapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import hr.tvz.natjecanje.R;
 import hr.tvz.natjecanje.karmapp.callbacks.OnCauseSelectedListener;
 import hr.tvz.natjecanje.karmapp.callbacks.OnDonationStyleSelectedListener;
@@ -94,6 +96,10 @@ public class IntroActivity extends ActionBarActivity implements OnCauseSelectedL
         // TODO
     }
 
+    public void onFinished(View v) {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
