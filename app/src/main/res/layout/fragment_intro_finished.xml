@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="hr.tvz.natjecanje.karmapp.fragments.IntroFinishedFragment"
+              android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceLarge" android:text="All done"
+              android:id="@+id/title"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceSmall" android:text="That&apos;s it....."
+              android:id="@+id/summary"/>
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finished!"
+            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="onFinished"/>
+</LinearLayout>
