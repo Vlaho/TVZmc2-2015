@@ -10,17 +10,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 import hr.tvz.natjecanje.R;
-import hr.tvz.natjecanje.karmapp.callbacks.OnCauseSelectedListener;
-import hr.tvz.natjecanje.karmapp.callbacks.OnDonationStyleSelectedListener;
-import hr.tvz.natjecanje.karmapp.callbacks.OnMaxDonationSelectedListener;
-import hr.tvz.natjecanje.karmapp.callbacks.OnProductivityAppConnectedListener;
+import hr.tvz.natjecanje.karmapp.callbacks.*;
 import hr.tvz.natjecanje.karmapp.fragments.*;
 
 import java.util.Locale;
 
 public class IntroActivity extends ActionBarActivity implements OnCauseSelectedListener,
-        OnDonationStyleSelectedListener, OnMaxDonationSelectedListener, OnProductivityAppConnectedListener {
+        OnDonationStyleSelectedListener, OnMaxDonationSelectedListener,
+        OnProductivityAppConnectedListener, OnTodoistConnectedListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -94,6 +93,16 @@ public class IntroActivity extends ActionBarActivity implements OnCauseSelectedL
     @Override
     public void onConnected() {
         // TODO
+    }
+
+    public void startTodoistConnect(View v) {
+        new ConnectTodoistFragment().show(getSupportFragmentManager(),
+                ConnectTodoistFragment.class.toString());
+    }
+
+    @Override
+    public void onTodoistConnected() {
+        Toast.makeText(this, getResources().getString(R.string.connect_todoist_success), Toast.LENGTH_SHORT).show();
     }
 
     public void onFinished(View v) {
