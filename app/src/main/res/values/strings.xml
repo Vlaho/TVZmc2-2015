@@ -16,5 +16,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="title_activity_connect_todoist">Todoist</string>
+    <string name="error">Error detected! Bailing out!</string>
+    <string name="connect_todoist_title">Todoist login</string>
+    <string name="connect_todoist_success">Todoist successfully added</string>
 
 </resources>
