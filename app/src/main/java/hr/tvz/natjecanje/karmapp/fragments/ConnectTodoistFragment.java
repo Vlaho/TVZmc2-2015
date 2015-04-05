@@ -20,6 +20,9 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import java.security.Key;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -68,6 +71,9 @@ public class ConnectTodoistFragment extends DialogFragment {
                     public void success(TodoistToken todoistToken, Response response) {
                         TinyDB db = new TinyDB(getActivity());
                         db.putString(Keys.TODOIST_TOKEN, todoistToken.getToken());
+                        List<String> alreadyConnected = db.getList(Keys.CONNECTED_APPS);
+                        alreadyConnected.add(Keys.TODOIST);
+                        db.putList(Keys.CONNECTED_APPS, alreadyConnected);
 
                         if (mListener != null) {
                             mListener.onTodoistConnected();

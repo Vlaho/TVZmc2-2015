@@ -25,7 +25,7 @@ public class BootReceiver extends BroadcastReceiver {
                     taskCheckIntent,
                     PendingIntent.FLAG_CANCEL_CURRENT);
 
-            long firstTriggerTime = getTimestampToday(12);
+            long firstTriggerTime = getTimestampToday(12); // Todo: Allow the user to specify the time
 
             alarmManager.setRepeating(
                     AlarmManager.RTC_WAKEUP,
@@ -33,15 +33,6 @@ public class BootReceiver extends BroadcastReceiver {
                     AlarmManager.INTERVAL_DAY,
                     pendingIntent
             );
-
-            if (firstTriggerTime < new Date().getTime()) {
-                alarmManager.setRepeating(
-                        AlarmManager.RTC_WAKEUP,
-                        firstTriggerTime,
-                        AlarmManager.INTERVAL_DAY,
-                        pendingIntent
-                );
-            }
         }
     }
 

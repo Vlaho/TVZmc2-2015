@@ -30,6 +30,13 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name="hr.tvz.natjecanje.karmapp.receivers.TaskCheckReceiver"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="hr.tvz.natjecanje.karmapp.receivers.TaskCheckReceiver" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
