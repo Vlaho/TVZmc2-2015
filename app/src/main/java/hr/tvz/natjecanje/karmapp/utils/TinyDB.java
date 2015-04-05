@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -208,7 +209,7 @@ public class TinyDB {
         editor.apply();
     }
 
-    public void putList(String key, ArrayList<String> marray) {
+    public void putList(String key, List<String> marray) {
         SharedPreferences.Editor editor = preferences.edit();
         String[] mystringlist = marray.toArray(new String[marray.size()]);
         // the comma like character used below is not a comma it is the SINGLE
@@ -218,7 +219,7 @@ public class TinyDB {
         editor.apply();
     }
 
-    public ArrayList<String> getList(String key) {
+    public List<String> getList(String key) {
         // the comma like character used below is not a comma it is the SINGLE
         // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used for
         // seprating the items in the list
@@ -226,7 +227,7 @@ public class TinyDB {
         return new ArrayList<String>(Arrays.asList(mylist));
     }
 
-    public void putListInt(String key, ArrayList<Integer> marray) {
+    public void putListInt(String key, List<Integer> marray) {
         SharedPreferences.Editor editor = preferences.edit();
         Integer[] mystringlist = marray.toArray(new Integer[marray.size()]);
         // the comma like character used below is not a comma it is the SINGLE
@@ -236,7 +237,7 @@ public class TinyDB {
         editor.apply();
     }
 
-    public ArrayList<Integer> getListInt(String key) {
+    public List<Integer> getListInt(String key) {
         // the comma like character used below is not a comma it is the SINGLE
         // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used for
         // seprating the items in the list
@@ -251,7 +252,7 @@ public class TinyDB {
         return gottenlist2;
     }
 
-    public void putListDouble(String key, ArrayList<Double> marray) {
+    public void putListDouble(String key, List<Double> marray) {
         SharedPreferences.Editor editor = preferences.edit();
         Double[] mystringlist = marray.toArray(new Double[marray.size()]);
         // the comma like character used below is not a comma it is the SINGLE
@@ -261,7 +262,7 @@ public class TinyDB {
         editor.apply();
     }
 
-    public ArrayList<Double> getListDouble(String key) {
+    public List<Double> getListDouble(String key) {
         // the comma like character used below is not a comma it is the SINGLE
         // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used for
         // seprating the items in the list
@@ -276,7 +277,7 @@ public class TinyDB {
         return gottenlist2;
     }
 
-    public void putListBoolean(String key, ArrayList<Boolean> marray) {
+    public void putListBoolean(String key, List<Boolean> marray) {
         ArrayList<String> origList = new ArrayList<String>();
 
         for (Boolean b : marray) {
@@ -290,9 +291,9 @@ public class TinyDB {
         putList(key, origList);
     }
 
-    public ArrayList<Boolean> getListBoolean(String key) {
-        ArrayList<String> origList = getList(key);
-        ArrayList<Boolean> mBools = new ArrayList<Boolean>();
+    public List<Boolean> getListBoolean(String key) {
+        List<String> origList = getList(key);
+        List<Boolean> mBools = new ArrayList<Boolean>();
 
         for (String b : origList) {
             if (b.equals("true")) {
