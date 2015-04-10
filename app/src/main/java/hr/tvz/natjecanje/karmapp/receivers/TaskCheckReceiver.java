@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 import hr.tvz.natjecanje.karmapp.callbacks.OnOverdueTasksRecievedListener;
 import hr.tvz.natjecanje.karmapp.tasks.GetOverdueTodoistItemsTask;
+import hr.tvz.natjecanje.karmapp.tasks.MakeDonationsTask;
 import hr.tvz.natjecanje.karmapp.utils.Keys;
 import hr.tvz.natjecanje.karmapp.utils.TinyDB;
 import hr.tvz.natjecanje.karmapp.wrappers.Doable;
@@ -39,5 +40,8 @@ public class TaskCheckReceiver extends BroadcastReceiver implements OnOverdueTas
     @Override
     public void onTasksReceived(List<Doable> items) {
         Log.i(TAG, "Received " + items.size() + " overdue items");
+
+        Log.i(TAG, "Make donations...");
+        new MakeDonationsTask(items).run();
     }
 }
