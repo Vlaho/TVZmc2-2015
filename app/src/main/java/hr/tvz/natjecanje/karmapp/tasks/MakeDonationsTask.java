@@ -39,7 +39,7 @@ public class MakeDonationsTask implements Runnable {
         Looper.prepare();
         for (Doable item : items) {
             try {
-                Stripe stripe = new Stripe("pk_test_q1OM2SrJZBGTLuebJI6NBV59");
+                Stripe stripe = new Stripe(myPrecious);
 
                 stripe.createToken(
                         card,
