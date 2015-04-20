@@ -1,6 +1,7 @@
 package hr.tvz.natjecanje.karmapp;
 
 import android.app.Application;
+import com.activeandroid.ActiveAndroid;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,6 +23,7 @@ public class KarmApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        ActiveAndroid.initialize(this);
         Parse.initialize(this, mySecret, mySecret);
 
         Gson gson = new GsonBuilder()

@@ -10,8 +10,10 @@ import com.stripe.android.TokenCallback;
 import com.stripe.android.model.Card;
 import com.stripe.android.model.Token;
 import com.stripe.exception.AuthenticationException;
+import hr.tvz.natjecanje.karmapp.donations.Donation;
 import hr.tvz.natjecanje.karmapp.wrappers.Doable;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,12 +34,15 @@ public class MakeDonationsTask implements Runnable {
         Card card = new Card("4242424242424242", 12, 2016, "123");
 
         final HashMap donationData = new HashMap();
-        donationData.put("amount", "100");
-        donationData.put("currency", "USD");
+        final String amount = "100";
+        final String currency = "USD";
+
+        donationData.put("amount", amount);
+        donationData.put("currency", currency);
         donationData.put("description", "KarmApp donation");
 
         Looper.prepare();
-        for (Doable item : items) {
+        for (final Doable item : items) {
             try {
                 Stripe stripe = new Stripe(myPrecious);
 
@@ -52,14 +57,21 @@ public class MakeDonationsTask implements Runnable {
                                     public void done(String result, ParseException e) {
                                         if (e == null) {
                                             Log.i(TAG, result);
+                                            // Persist the donation in the database
+                                            Donation d = new Donation(amount,
+                                                    currency,
+                                                    item.getContent(),
+                                                    new Date(),
+                                                    item.daysOverdue());
+                                            d.save();
                                         } else {
-                                            Log.i(TAG, e.getMessage());
+                                            Log.e(TAG, e.getMessage());
                                         }
                                     }
                                 });
                             }
                             public void onError(Exception e) {
-                                Log.i(TAG, e.getMessage());
+                                Log.e(TAG, e.getMessage());
                             }
                         }
                 );
