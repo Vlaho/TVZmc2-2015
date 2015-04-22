@@ -20,5 +20,29 @@
     <string name="error">Error detected! Bailing out!</string>
     <string name="connect_todoist_title">Todoist login</string>
     <string name="connect_todoist_success">Todoist successfully added</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string-array name="donationCauses">
+        <item>Crveni križ</item>
+        <item>Zaklada Ana Rukavina</item>
+        <item>Korak u život</item>
+    </string-array>
+
+    <string-array name="donationType">
+        <item>Once per month</item>
+        <item>For each overdue task</item>
+    </string-array>
+
+    <string-array name="donationCausesValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="donationTypeValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 
 </resources>

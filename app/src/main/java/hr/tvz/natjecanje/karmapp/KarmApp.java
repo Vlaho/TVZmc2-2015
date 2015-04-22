@@ -23,8 +23,12 @@ public class KarmApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+<<<<<<< Updated upstream
         ActiveAndroid.initialize(this);
         Parse.initialize(this, mySecret, mySecret);
+=======
+        Parse.initialize(this, "BvBuEHQ6xnPoH4v5t2AuxDBUBRJaOCol4RrDCsQz", "8Tb3KGlQILLLvbu8CFB65klN6sM2LlIzRjDZUBlM");
+>>>>>>> Stashed changes
 
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)

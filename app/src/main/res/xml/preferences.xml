@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Productivity apps"
+        android:key="productivityApps"/>
+    <PreferenceCategory
+        android:title="Cause">
+        <MultiSelectListPreference
+            android:title="Donation cause"
+            android:key="donationCauseList"
+            android:summary="Choose donation cause"
+            android:entries="@array/donationCauses"
+            android:entryValues="@array/donationCausesValues"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Donations">
+        <ListPreference
+            android:title="Donation type"
+            android:key="donationTypeList"
+            android:summary="Choose donation type"
+            android:entries="@array/donationType"
+            android:entryValues="@array/donationTypeValues"/>
+        <Preference
+            android:title="Donations setup"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Task check schedule">
+        <Preference
+            android:title="Set time"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Notifications">
+        <CheckBoxPreference
+            android:title="Notifications"
+            android:summaryOn="Enabled"
+            android:summaryOff="Disabled"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="About">
+        <Preference
+            android:title="KarmApp"
+            android:summary="1.0"
+            android:selectable="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>
